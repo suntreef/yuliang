@@ -1,0 +1,11 @@
+node_modules/
+**/node_modules/
+web/dist/
+web-v2/dist/
+data/
+.smoke-data/
+.regress-data/
+.token
+*.log
+*.zip
+.DS_Store
