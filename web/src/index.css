@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --color-nfx-red: #e50914;
+  --color-nfx-dark: #141414;
+  --color-nfx-card: #181818;
+  --color-nfx-gray: #808080;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: #141414;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 悬浮放大只在支持 hover 的指针设备生效(触屏一律点按) */
+@media (hover: hover) and (pointer: fine) {
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card-hover:hover {
+    transform: scale(1.06) translateY(-4px);
+    z-index: 20;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65);
+  }
+}
+
+.row-scroll {
+  scrollbar-width: none;
+}
+.row-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* iOS 安全区 */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+.safe-top {
+  padding-top: env(safe-area-inset-top, 0);
+}
+
+input, select, textarea {
+  color-scheme: dark;
+}
+
+@keyframes nfx-pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.pop-in {
+  animation: nfx-pop 0.35s ease both;
+}
