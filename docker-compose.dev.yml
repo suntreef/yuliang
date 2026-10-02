@@ -1,0 +1,14 @@
+# 本机源码构建版(开发用):docker compose -f docker-compose.dev.yml up -d --build
+services:
+  yuliang:
+    build: .
+    container_name: yuliang-dev
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data
+    environment:
+      - PORT=8080
+      - DATA_DIR=/data
+      - TZ=Asia/Shanghai
