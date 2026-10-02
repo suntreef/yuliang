@@ -1,0 +1,14 @@
+# NAS 拉取版:直接用云端镜像,无需本地构建
+services:
+  yuliang:
+    image: ghcr.io/suntreef/yuliang:latest
+    container_name: yuliang
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data
+    environment:
+      - PORT=8080
+      - DATA_DIR=/data
+      - TZ=Asia/Shanghai
