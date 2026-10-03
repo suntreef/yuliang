@@ -121,7 +121,7 @@ export default function Vault() {
       {createPortal(
         <button onClick={fab.act}
           className="btn-press fixed bottom-[118px] right-4 z-40 h-[52px] pl-5 pr-6 rounded-full text-white font-bold text-[15px] flex items-center gap-2"
-          style={{ background: 'linear-gradient(135deg, #0d9488, #0891b2)', boxShadow: '0 12px 28px rgba(13, 148, 136, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4)' }}>
+          style={{ background: 'var(--g-brand)', boxShadow: '0 12px 28px rgba(13, 148, 136, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4)' }}>
           <Icon name="plus" size={17} strokeWidth={2.4} />{fab.label}
         </button>,
         document.body,
@@ -142,7 +142,7 @@ export default function Vault() {
       <Sheet open={sheet === 'goal'} onClose={() => setSheet('')} title="立个目标">
         <GoalForm onCancel={() => setSheet('')} onSaved={() => { setSheet(''); load() }} />
       </Sheet>
-      {toast && <div className="fixed bottom-[100px] left-1/2 -translate-x-1/2 bg-t1 text-white px-4 py-2.5 rounded-full text-[13px] z-50 shadow-lg">{toast}</div>}
+      {toast && <div className="fixed bottom-[136px] left-1/2 -translate-x-1/2 bg-t1 text-white px-4 py-2.5 rounded-full text-[13px] z-50 shadow-lg">{toast}</div>}
     </div>
   )
 }
