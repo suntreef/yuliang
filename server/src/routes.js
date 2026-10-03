@@ -68,7 +68,7 @@ export default async function routes(app, { db }) {
     return {
       member: publicMember(m),
       level: levelOf(xpTotal(db, m.id)),
-      streak: ss.streak,
+      streak: ss.monthStreak,
       snapshotDays: ss.days,
       snapshotThisMonth: snapThisMonth,
       pendingReminders: db.prepare("SELECT COUNT(*) AS n FROM reminders WHERE member_id = ? AND status = 'pending' AND source_type != 'badge'").get(m.id).n,
