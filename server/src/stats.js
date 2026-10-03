@@ -1,5 +1,5 @@
 import { rateOn, baseCurrency } from './fx.js'
-import { today, addDays, round2, nowISO } from './util.js'
+import { today, addDays, addMonthsKey, round2, nowISO } from './util.js'
 
 export function activeAccounts(db, memberId) {
   return db.prepare('SELECT * FROM accounts WHERE member_id = ? AND archived = 0 ORDER BY sort, id').all(memberId)
@@ -73,7 +73,15 @@ export function snapshotStats(db, memberId) {
     if (!dates.includes(d)) d = addDays(d, -1)
     while (dates.includes(d)) { streak++; d = addDays(d, -1) }
   }
-  return { days: dates.length, streak, lastDate: dates[dates.length - 1] || null }
+  // 连囤:连续有盘点的月数(复盘以月为周期)
+  const months = [...new Set(dates.map((d) => d.slice(0, 7)))]
+  let monthStreak = 0
+  if (months.length) {
+    let mk = today().slice(0, 7)
+    if (!months.includes(mk)) mk = addMonthsKey(mk, -1)
+    while (months.includes(mk)) { monthStreak++; mk = addMonthsKey(mk, -1) }
+  }
+  return { days: dates.length, streak, monthStreak, lastDate: dates[dates.length - 1] || null }
 }
 
 export const LEVELS = [[0, '新影迷'], [50, '群演'], [150, '资深剧迷'], [300, '影评人'], [600, '制片人'], [1000, '监制'], [1600, '导演']]
