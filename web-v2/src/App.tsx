@@ -60,7 +60,7 @@ export default function App() {
       <div className="min-h-screen grid place-items-center">
         <div className="text-center">
           <div className="splash-mark w-16 h-16 mx-auto rounded-[20px] grid place-items-center text-3xl text-white shadow-lg shadow-teal/30"
-            style={{ background: 'linear-gradient(135deg, #0d9488, #0284c7)' }}>余</div>
+            style={{ background: 'var(--g-brand)' }}>余</div>
           <div className="mt-4 font-black tracking-[0.2em] text-[15px] text-teal-deep">余粮</div>
           <div className="text-t3 text-[11px] mt-1">家有余粮,心里不慌</div>
         </div>
