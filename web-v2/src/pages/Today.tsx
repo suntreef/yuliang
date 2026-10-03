@@ -51,7 +51,7 @@ export default function Today() {
   const series = net?.series || []
   const monthAgo = series.length > 30 ? series[series.length - 31] : series[0]
   const rings = [
-    { label: '记快照', done: me.snapshotThisMonth, color: '#0d9488' },
+    { label: '记快照', done: me.snapshotThisMonth, color: '#2f8f83' },
     { label: '读月报', done: me.unseenReports === 0, color: '#0284c7' },
     { label: '清待办', done: me.pendingReminders === 0, color: '#f59e0b' },
   ]
@@ -218,7 +218,7 @@ export default function Today() {
         <div className="sheet-card rounded-[24px] p-4 text-[13px] text-t2 rise">第一期粮报将在你完成盘点后的下个月 1 日出刊。</div>
       )}
 
-      {toast && <div className="fixed bottom-[100px] left-1/2 -translate-x-1/2 bg-t1 text-white px-4 py-2.5 rounded-full text-[13px] z-50 shadow-lg">{toast}</div>}
+      {toast && <div className="fixed bottom-[136px] left-1/2 -translate-x-1/2 bg-t1 text-white px-4 py-2.5 rounded-full text-[13px] z-50 shadow-lg">{toast}</div>}
     </div>
   )
 }
