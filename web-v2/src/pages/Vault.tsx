@@ -121,7 +121,7 @@ export default function Vault() {
       {createPortal(
         <button onClick={fab.act}
           className="btn-press fixed bottom-[118px] right-4 z-40 h-[52px] pl-5 pr-6 rounded-full text-white font-bold text-[15px] flex items-center gap-2"
-          style={{ background: 'var(--g-brand)', boxShadow: '0 12px 28px rgba(13, 148, 136, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4)' }}>
+          style={{ background: 'var(--g-brand)', boxShadow: '0 12px 28px rgba(124, 58, 237, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4)' }}>
           <Icon name="plus" size={17} strokeWidth={2.4} />{fab.label}
         </button>,
         document.body,
