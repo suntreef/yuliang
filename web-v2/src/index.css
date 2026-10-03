@@ -1,55 +1,55 @@
 @import "tailwindcss";
 
-/* ─── 中国传统色 · 余粮 ───
-   浅色:月白底 · 天青主 · 朱砂涨 · 石绿跌 · 鎏金成就
-   深色:黛绿夜 · 同一语义,提亮一档 */
+/* ─── ZA Bank 风主题 · 余粮 ───
+   紫罗兰主色 · 紫→品红渐变 · 珊瑚警示 · 琥珀成就
+   浅色:紫调月面白 / 深色:深紫夜 */
 
 :root {
-  --c-body: #e9efea;      /* 月白(偏青的底) */
-  --c-stage: #f3f7f4;
+  --c-body: #ede9f7;      /* 紫调浅底 */
+  --c-stage: #f6f4fb;
   --c-card: #ffffff;
-  --c-line: rgba(31, 45, 43, 0.08);
-  --c-grid: rgba(31, 45, 43, 0.12);
+  --c-line: rgba(26, 21, 35, 0.08);
+  --c-grid: rgba(26, 21, 35, 0.12);
   --c-inset: rgba(255, 255, 255, 0.65);
-  --c-t1: #1f2d2b;        /* 墨 */
-  --c-t2: #5f7269;        /* 青灰 */
-  --c-t3: #8fa099;
-  --c-chip: #eef3ef;
-  --c-track: #dde7df;
-  --c-hover: #f6f9f6;
-  --c-shadow: rgba(31, 45, 43, 0.05);
-  /* 品牌渐变:青瓷 → 天青 */
-  --g-brand: linear-gradient(135deg, #2f8f83, #3f97a8);
-  --c-brand: #2f8f83;
-  --c-brand-deep: #237469;
-  /* 语义:朱砂涨 · 石绿跌(中国习惯红涨绿跌) */
-  --c-up: #c3492f;
-  --c-down: #4a9463;
-  --c-urgent: #a93a50;    /* 胭脂 */
-  --c-gold: #c9a063;      /* 鎏金 */
+  --c-t1: #1a1523;        /* 紫墨 */
+  --c-t2: #6e6786;
+  --c-t3: #9b94ad;
+  --c-chip: #f0edf9;
+  --c-track: #e5e0f2;
+  --c-hover: #f7f5fd;
+  --c-shadow: rgba(26, 21, 35, 0.06);
+  /* 品牌渐变:紫罗兰 → 品红(ZA 招牌) */
+  --g-brand: linear-gradient(135deg, #7c3aed, #c026d3);
+  --c-brand: #7c3aed;
+  --c-brand-deep: #5b21b6;
+  /* 语义:朱红涨 · 翠绿跌 */
+  --c-up: #e5484d;
+  --c-down: #30a46c;
+  --c-urgent: #e5484d;
+  --c-gold: #f59e0b;
 }
 
 html.dark {
-  --c-body: #0d1412;      /* 黛绿夜 */
-  --c-stage: #121c17;
-  --c-card: #1a2621;
-  --c-line: rgba(232, 240, 234, 0.09);
-  --c-grid: rgba(232, 240, 234, 0.13);
+  --c-body: #0d0a14;      /* 深紫夜 */
+  --c-stage: #120e1c;
+  --c-card: #1a1526;
+  --c-line: rgba(233, 228, 245, 0.09);
+  --c-grid: rgba(233, 228, 245, 0.13);
   --c-inset: rgba(255, 255, 255, 0.07);
-  --c-t1: #e8f0ea;
-  --c-t2: #93a89d;
-  --c-t3: #647a70;
-  --c-chip: #22302a;
-  --c-track: #2c3c34;
-  --c-hover: #202e27;
-  --c-shadow: rgba(0, 0, 0, 0.4);
-  --g-brand: linear-gradient(135deg, #3aa48f, #4fa6b5);
-  --c-brand: #5fb8aa;
-  --c-brand-deep: #7fd0c2;
-  --c-up: #e58b72;
-  --c-down: #7cc5a0;
-  --c-urgent: #e58b8b;
-  --c-gold: #d9b96e;
+  --c-t1: #ede9f7;
+  --c-t2: #9a92b3;
+  --c-t3: #655d7d;
+  --c-chip: #241d36;
+  --c-track: #322a4a;
+  --c-hover: #1e1830;
+  --c-shadow: rgba(0, 0, 0, 0.45);
+  --g-brand: linear-gradient(135deg, #8b5cf6, #d946ef);
+  --c-brand: #a78bfa;
+  --c-brand-deep: #c4b5fd;
+  --c-up: #ff7079;
+  --c-down: #3dd68c;
+  --c-urgent: #ff7079;
+  --c-gold: #fbbf24;
   color-scheme: dark;
 }
 
@@ -128,12 +128,12 @@ body {
 html.dark .ghost-btn { color: var(--c-brand); }
 .ghost-btn:hover { filter: brightness(0.97); }
 
-/* 情境渐变(玻璃后面的氛围光) */
+/* 情境渐变(玻璃后面的氛围光):紫→品红 */
 .spotlight {
-  background: linear-gradient(135deg, rgba(47, 143, 131, 0.10), rgba(63, 151, 168, 0.08));
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.10), rgba(192, 38, 211, 0.07));
 }
 html.dark .spotlight {
-  background: linear-gradient(135deg, rgba(63, 164, 143, 0.20), rgba(79, 166, 181, 0.14));
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.20), rgba(217, 70, 239, 0.13));
 }
 
 /* 胶囊流光:定位交给元素自身的 absolute,此处绝不可写 position */
