@@ -34,7 +34,7 @@ export function Icon({ name, size = 18, className = '', strokeWidth = 1.8 }: any
 }
 
 // ---------- 基础控件 ----------
-export const inputCls = 'w-full bg-card border border-inkline rounded-[14px] px-3.5 py-2.5 text-[15px] outline-none focus:border-teal transition-colors placeholder:text-t3'
+export const inputCls = 'w-full bg-card border border-inkline rounded-[14px] px-3.5 py-2.5 text-[16px] outline-none focus:border-brand transition-colors placeholder:text-t3'
 export function Field({ label, children, hint }: any) {
   return (
     <label className="block mb-4">
@@ -46,10 +46,10 @@ export function Field({ label, children, hint }: any) {
 }
 export function Btn({ children, className = '', ghost, tone, ...p }: any) {
   const toneCls = tone === 'gold' ? 'bg-gold text-white hover:bg-amber-500'
-    : tone === 'mint' ? 'bg-teal text-white hover:bg-teal-deep'
+    : tone === 'mint' ? 'bg-brand text-white hover:bg-brand-deep'
       : ghost ? 'ghost-btn'
-        : 'text-white shadow-md shadow-teal/30 hover:brightness-105'
-  const primaryStyle = !(ghost || tone) ? { background: 'linear-gradient(135deg, #0d9488, #0891b2)', boxShadow: '0 6px 16px rgba(13,148,136,.3), inset 0 1px 0 rgba(255,255,255,.35)' } : undefined
+        : 'text-white'
+  const primaryStyle = !(ghost || tone) ? { background: 'var(--g-brand)', boxShadow: '0 6px 16px rgba(47, 143, 131, 0.3), inset 0 1px 0 rgba(255,255,255,.35)' } : undefined
   return <button {...p} style={{ ...primaryStyle, ...p.style }} className={`btn-press px-4 py-2.5 rounded-[16px] font-bold text-[15px] disabled:opacity-40 ${toneCls} ${className}`}>{children}</button>
 }
 export function Chip({ children, tone = 'default' }: any) {
@@ -212,8 +212,8 @@ export function TabBar() {
               width: `calc((100% - 10px) / ${tabs.length})`,
               transform: `translateX(calc(${Math.max(0, idx)} * 100%))`,
               transition: 'transform 0.45s cubic-bezier(0.32, 1.35, 0.5, 1), opacity 0.25s ease',
-              background: 'linear-gradient(135deg, #0d9488, #0891b2)',
-              boxShadow: '0 6px 18px rgba(13, 148, 136, 0.45)',
+              background: 'var(--g-brand)',
+              boxShadow: '0 6px 18px rgba(47, 143, 131, 0.45)',
             }} />
           {tabs.map(([to, label, icon]) => {
             const active = to === window.location.pathname
@@ -253,7 +253,7 @@ export function Segmented({ value, options, onChange }: any) {
 }
 
 // ---------- 三环 ----------
-export function Ring({ ratio, label, color = '#0d9488', size = 52 }: any) {
+export function Ring({ ratio, label, color = '#2f8f83', size = 52 }: any) {
   const r = (size - 7) / 2
   const C = 2 * Math.PI * r
   const clamped = Math.max(0, Math.min(1, ratio || 0))
@@ -317,7 +317,7 @@ export function ScrubChart({ series, height = 200 }: any) {
   const area = `${line} L${x(series.length - 1).toFixed(1)},${H - P} L${x(0).toFixed(1)},${H - P} Z`
   const first = vals[0]
   const last = vals[vals.length - 1]
-  const color = last >= first ? '#0d9488' : '#f43f5e'
+  const color = last >= first ? '#2f8f83' : '#f43f5e'
   const hp = hi != null ? series[hi] : null
   const lx = x(series.length - 1)
   const ly = y(last)
@@ -346,7 +346,7 @@ export function ScrubChart({ series, height = 200 }: any) {
           </>
         )}
       </div>
-      <div ref={ref} className="mt-2"
+      <div ref={ref} className="mt-2" style={{ touchAction: 'pan-y' }}
         onPointerDown={(e) => locate(e.clientX)}
         onPointerMove={(e) => { if (e.buttons || e.pointerType === 'mouse') locate(e.clientX) }}
         onPointerLeave={() => setHi(null)}>
