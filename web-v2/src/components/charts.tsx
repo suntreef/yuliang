@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react'
 import { fmtCompact } from '../api'
 import { Delta, Empty } from './controls'
 
-export function Ring({ ratio, label, color = '#2f8f83', size = 52 }: any) {
+export function Ring({ ratio, label, color = '#7c3aed', size = 52 }: any) {
   const r = (size - 7) / 2
   const C = 2 * Math.PI * r
   const clamped = Math.max(0, Math.min(1, ratio || 0))
@@ -46,7 +46,7 @@ export function ScrubChart({ series, height = 200 }: any) {
   const area = `${line} L${x(series.length - 1).toFixed(1)},${H - P} L${x(0).toFixed(1)},${H - P} Z`
   const first = vals[0]
   const last = vals[vals.length - 1]
-  const color = last >= first ? '#c3492f' : '#4a9463'
+  const color = last >= first ? '#e5484d' : '#30a46c'
   const hp = hi != null ? series[hi] : null
   const lx = x(series.length - 1)
   const ly = y(last)
