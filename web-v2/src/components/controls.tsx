@@ -19,7 +19,7 @@ export function Btn({ children, className = '', ghost, tone, ...p }: any) {
     : tone === 'mint' ? 'bg-brand text-white hover:bg-brand-deep'
       : ghost ? 'ghost-btn'
         : 'text-white'
-  const primaryStyle = !(ghost || tone) ? { background: 'var(--g-brand)', boxShadow: '0 6px 16px rgba(47, 143, 131, 0.3), inset 0 1px 0 rgba(255,255,255,.35)' } : undefined
+  const primaryStyle = !(ghost || tone) ? { background: 'var(--g-brand)', boxShadow: '0 6px 16px rgba(124, 58, 237, 0.35), inset 0 1px 0 rgba(255,255,255,.35)' } : undefined
   return <button {...p} style={{ ...primaryStyle, ...p.style }} className={`btn-press px-4 py-2.5 rounded-[16px] font-bold text-[15px] disabled:opacity-40 ${toneCls} ${className}`}>{children}</button>
 }
 
