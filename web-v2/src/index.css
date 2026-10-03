@@ -1,52 +1,55 @@
 @import "tailwindcss";
 
-/* ---- 主题变量:浅色(默认)与深色 ---- */
+/* ─── 中国传统色 · 余粮 ───
+   浅色:月白底 · 天青主 · 朱砂涨 · 石绿跌 · 鎏金成就
+   深色:黛绿夜 · 同一语义,提亮一档 */
+
 :root {
-  --c-stage: #f3f6f8;
-  --c-body: #e8edf1;
+  --c-body: #e9efea;      /* 月白(偏青的底) */
+  --c-stage: #f3f7f4;
   --c-card: #ffffff;
-  --c-line: rgba(15, 23, 42, 0.07);
-  --c-grid: rgba(15, 23, 42, 0.12);
-  --c-inset: rgba(255, 255, 255, 0.55);
-  --c-t1: #0f172a;
-  --c-t2: #64748b;
-  --c-t3: #94a3b8;
-  --c-chip: #f1f5f9;
-  --c-track: #e2e8f0;
-  --c-hover: #f8fafc;
-  --c-shadow: rgba(15, 23, 42, 0.05);
-  --t-teal-bg: #ccfbf1;
-  --t-teal-fg: #0b7c72;
-  --t-red-bg: #fff1f2;
-  --t-red-fg: #e11d48;
-  --t-amber-bg: #fffbeb;
-  --t-amber-fg: #d97706;
-  --t-gold-bg: #fef3c7;
-  --t-gold-fg: #b45309;
+  --c-line: rgba(31, 45, 43, 0.08);
+  --c-grid: rgba(31, 45, 43, 0.12);
+  --c-inset: rgba(255, 255, 255, 0.65);
+  --c-t1: #1f2d2b;        /* 墨 */
+  --c-t2: #5f7269;        /* 青灰 */
+  --c-t3: #8fa099;
+  --c-chip: #eef3ef;
+  --c-track: #dde7df;
+  --c-hover: #f6f9f6;
+  --c-shadow: rgba(31, 45, 43, 0.05);
+  /* 品牌渐变:青瓷 → 天青 */
+  --g-brand: linear-gradient(135deg, #2f8f83, #3f97a8);
+  --c-brand: #2f8f83;
+  --c-brand-deep: #237469;
+  /* 语义:朱砂涨 · 石绿跌(中国习惯红涨绿跌) */
+  --c-up: #c3492f;
+  --c-down: #4a9463;
+  --c-urgent: #a93a50;    /* 胭脂 */
+  --c-gold: #c9a063;      /* 鎏金 */
 }
 
 html.dark {
-  --c-stage: #0e1116;
-  --c-body: #0a0d11;
-  --c-card: #161b22;
-  --c-line: rgba(255, 255, 255, 0.09);
-  --c-grid: rgba(255, 255, 255, 0.13);
-  --c-inset: rgba(255, 255, 255, 0.08);
-  --c-t1: #e6edf3;
-  --c-t2: #8b98a9;
-  --c-t3: #5f6b7a;
-  --c-chip: #1e2530;
-  --c-track: #2a323d;
-  --c-hover: #1a212b;
-  --c-shadow: rgba(0, 0, 0, 0.45);
-  --t-teal-bg: rgba(13, 148, 136, 0.2);
-  --t-teal-fg: #5eead4;
-  --t-red-bg: rgba(244, 63, 94, 0.16);
-  --t-red-fg: #fda4af;
-  --t-amber-bg: rgba(245, 158, 11, 0.15);
-  --t-amber-fg: #fcd34d;
-  --t-gold-bg: rgba(245, 158, 11, 0.15);
-  --t-gold-fg: #fcd34d;
+  --c-body: #0d1412;      /* 黛绿夜 */
+  --c-stage: #121c17;
+  --c-card: #1a2621;
+  --c-line: rgba(232, 240, 234, 0.09);
+  --c-grid: rgba(232, 240, 234, 0.13);
+  --c-inset: rgba(255, 255, 255, 0.07);
+  --c-t1: #e8f0ea;
+  --c-t2: #93a89d;
+  --c-t3: #647a70;
+  --c-chip: #22302a;
+  --c-track: #2c3c34;
+  --c-hover: #202e27;
+  --c-shadow: rgba(0, 0, 0, 0.4);
+  --g-brand: linear-gradient(135deg, #3aa48f, #4fa6b5);
+  --c-brand: #5fb8aa;
+  --c-brand-deep: #7fd0c2;
+  --c-up: #e58b72;
+  --c-down: #7cc5a0;
+  --c-urgent: #e58b8b;
+  --c-gold: #d9b96e;
   color-scheme: dark;
 }
 
@@ -55,26 +58,32 @@ html.dark {
   --color-body: var(--c-body);
   --color-card: var(--c-card);
   --color-line: var(--c-line);
+  --color-inkline: var(--c-line);
+  --color-grid: var(--c-grid);
+  --color-inset: var(--c-inset);
   --color-t1: var(--c-t1);
   --color-t2: var(--c-t2);
   --color-t3: var(--c-t3);
   --color-chip: var(--c-chip);
   --color-track: var(--c-track);
   --color-hover: var(--c-hover);
-  /* 语义色:绿涨红跌(非炒股场景),红兼警示 */
-  --color-up: #0d9488;
-  --color-down: #f43f5e;
-  --color-urgent: #f43f5e;
-  /* 品牌 */
-  --color-teal: #0d9488;
-  --color-teal-deep: #0b7c72;
-  --color-sky: #0284c7;
-  /* 成就唯一暖色 */
-  --color-gold: #f59e0b;
+  --color-brand: var(--c-brand);
+  --color-brand-deep: var(--c-brand-deep);
+  --color-up: var(--c-up);
+  --color-down: var(--c-down);
+  --color-urgent: var(--c-urgent);
+  --color-gold: var(--c-gold);
+  /* 兼容旧类名(内部全部指向中国风色) */
+  --color-teal: var(--c-brand);
+  --color-teal-deep: var(--c-brand-deep);
+  --color-urgent2: var(--c-urgent);
 }
 
 html {
   color-scheme: light;
+  /* 触屏丝滑:去点击高亮、消双击缩放延迟 */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 body {
@@ -82,6 +91,7 @@ body {
   color: var(--c-t1);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
 }
 
 .num {
@@ -89,26 +99,44 @@ body {
   letter-spacing: -0.02em;
 }
 
-/* 统一卡面:去边框,靠色调与柔投影分层 + 顶部镜面高光(更现代) */
+/* 统一卡面:无边框色调分层 + 顶部镜面高光 */
 .sheet-card {
   background: var(--c-card);
   box-shadow: 0 1px 2px var(--c-shadow), 0 12px 32px var(--c-shadow), inset 0 1px 0 var(--c-inset);
 }
 
-/* 液态玻璃材质(强磨砂 + 镜面边) */
-.glass-strong {
-  background: linear-gradient(160deg, color-mix(in srgb, var(--c-card) 80%, transparent), color-mix(in srgb, var(--c-card) 52%, transparent));
-  -webkit-backdrop-filter: blur(22px) saturate(1.8);
-  backdrop-filter: blur(22px) saturate(1.8);
-  border: 1px solid var(--c-line);
-  box-shadow:
-    inset 0 1px 0 var(--c-inset),
-    inset 0 -1px 0 color-mix(in srgb, var(--c-inset) 45%, transparent),
-    0 14px 40px rgba(0, 0, 0, 0.16);
+/* 色调小标签(明暗自适应) */
+.tint {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 8px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.tint-default { background: var(--c-chip); color: var(--c-t2); }
+.tint-red { background: color-mix(in srgb, var(--c-urgent) 14%, transparent); color: var(--c-urgent); }
+.tint-amber { background: color-mix(in srgb, var(--c-gold) 18%, transparent); color: var(--c-gold); }
+.tint-mint { background: color-mix(in srgb, var(--c-brand) 14%, transparent); color: var(--c-brand-deep); }
+.tint-gold { background: color-mix(in srgb, var(--c-gold) 16%, transparent); color: var(--c-gold); }
+
+/* 幽灵按钮 */
+.ghost-btn {
+  background: color-mix(in srgb, var(--c-brand) 12%, transparent);
+  color: var(--c-brand-deep);
+}
+html.dark .ghost-btn { color: var(--c-brand); }
+.ghost-btn:hover { filter: brightness(0.97); }
+
+/* 情境渐变(玻璃后面的氛围光) */
+.spotlight {
+  background: linear-gradient(135deg, rgba(47, 143, 131, 0.10), rgba(63, 151, 168, 0.08));
+}
+html.dark .spotlight {
+  background: linear-gradient(135deg, rgba(63, 164, 143, 0.20), rgba(79, 166, 181, 0.14));
 }
 
-/* 胶囊流光:一道高光每 6 秒扫过一次 */
-/* 胶囊流光:一道高光每 6 秒扫过一次(定位交给元素自身的 absolute,勿在此写 position) */
+/* 胶囊流光:定位交给元素自身的 absolute,此处绝不可写 position */
 .capsule-shine { overflow: hidden; }
 .capsule-shine::after {
   content: '';
@@ -125,39 +153,8 @@ body {
   100% { background-position: -40% 0; }
 }
 
-/* 色调小标签(明暗自适应) */
-.tint {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 8px;
-  padding: 2px 8px;
-  font-size: 11px;
-  font-weight: 700;
-}
-.tint-default { background: var(--c-chip); color: var(--c-t2); }
-.tint-red { background: var(--t-red-bg); color: var(--t-red-fg); }
-.tint-amber { background: var(--t-amber-bg); color: var(--t-amber-fg); }
-.tint-mint { background: var(--t-teal-bg); color: var(--t-teal-fg); }
-.tint-gold { background: var(--t-gold-bg); color: var(--t-gold-fg); }
-
-/* 幽灵按钮(明暗自适应) */
-.ghost-btn {
-  background: var(--t-teal-bg);
-  color: var(--t-teal-fg);
-}
-.ghost-btn:hover { filter: brightness(0.97); }
-
-/* 情境渐变 */
-.spotlight {
-  background: linear-gradient(135deg, rgba(13, 148, 136, 0.10), rgba(2, 132, 199, 0.08));
-}
-html.dark .spotlight {
-  background: linear-gradient(135deg, rgba(13, 148, 136, 0.22), rgba(2, 132, 199, 0.16));
-}
-
 /* ---- 页面切换(方向感知) ----
-   注意:终点必须是 transform: none —— 若保留恒等矩阵,
-   会让页面容器变成 fixed 元素(FAB/悬浮按钮)的包含块,导致错位 */
+   终点必须是 transform: none,否则容器成为 fixed 元素的包含块导致悬浮按钮错位 */
 @keyframes v3-slide-left {
   from { opacity: 0; transform: translateX(56px) scale(0.985); }
   to { opacity: 1; transform: none; }
