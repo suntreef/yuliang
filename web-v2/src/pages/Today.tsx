@@ -51,8 +51,8 @@ export default function Today() {
   const series = net?.series || []
   const monthAgo = series.length > 30 ? series[series.length - 31] : series[0]
   const rings = [
-    { label: '记快照', done: me.snapshotThisMonth, color: '#2f8f83' },
-    { label: '读月报', done: me.unseenReports === 0, color: '#0284c7' },
+    { label: '记快照', done: me.snapshotThisMonth, color: '#7c3aed' },
+    { label: '读月报', done: me.unseenReports === 0, color: '#c026d3' },
     { label: '清待办', done: me.pendingReminders === 0, color: '#f59e0b' },
   ]
   const doneCount = rings.filter((r) => r.done).length
