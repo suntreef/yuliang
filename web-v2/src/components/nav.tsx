@@ -17,7 +17,7 @@ export function TopBar() {
     document.documentElement.classList.toggle('dark', d)
     localStorage.setItem('yl_theme', d ? 'dark' : 'light')
     const meta = document.querySelector('meta[name="theme-color"]')
-    if (meta) meta.setAttribute('content', d ? '#121c17' : '#f3f7f4')
+    if (meta) meta.setAttribute('content', d ? '#120e1c' : '#f6f4fb')
   }
   const loadBell = () => api.get('/api/reminders?status=pending').then(setPendings).catch(() => {})
   useEffect(() => { loadBell() }, [])
@@ -122,7 +122,7 @@ export function TabBar() {
               transform: `translateX(calc(${Math.max(0, idx)} * 100%))`,
               transition: 'transform 0.45s cubic-bezier(0.32, 1.35, 0.5, 1), opacity 0.25s ease',
               background: 'var(--g-brand)',
-              boxShadow: '0 6px 18px rgba(47, 143, 131, 0.45)',
+              boxShadow: '0 6px 18px rgba(124, 58, 237, 0.45)',
             }} />
           {tabs.map(([to, label, icon]) => {
             const active = to === window.location.pathname
