@@ -120,11 +120,14 @@ function Shell() {
     if (next) navigate(next)
   }
 
+  // 只有三个主 Tab 显示底部栏;设置/详情页隐藏,避免遮挡内容
+  const isTabPage = TAB_ORDER.includes(location.pathname)
+
   return (
     <div className="min-h-screen">
       <TopBar />
       <main
-        className="pt-[60px] md:pt-[68px] pb-[128px] max-w-[560px] mx-auto px-4"
+        className={`pt-[60px] md:pt-[68px] max-w-[560px] mx-auto px-4 ${isTabPage ? 'pb-[128px]' : 'pb-10'}`}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
@@ -139,7 +142,7 @@ function Shell() {
           </Routes>
         </div>
       </main>
-      <TabBar />
+      {isTabPage && <TabBar />}
     </div>
   )
 }
